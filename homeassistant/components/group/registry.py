@@ -71,5 +71,8 @@ class GroupIntegrationRegistry:
 
         if len(on_states) == 1 and off_state not in self.off_on_mapping:
             self.off_on_mapping[off_state] = on_states[0]
+        if off_state not in self.off_on_mapping:
+            self.off_on_mapping[off_state] = on_states[0]
+        self.state_group_mapping[domain] = (on_states[0], off_state)
 
         self.on_states_by_domain[domain] = set(on_states)
